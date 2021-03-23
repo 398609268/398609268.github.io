@@ -71,6 +71,83 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-MySql去重" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/23/MySql%E5%8E%BB%E9%87%8D/" class="article-date">
+  <time class="dt-published" datetime="2021-03-23T14:40:27.000Z" itemprop="datePublished">2021-03-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/23/MySql%E5%8E%BB%E9%87%8D/">MySql去重</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="MySQL去重"><a href="#MySQL去重" class="headerlink" title="MySQL去重"></a>MySQL去重</h1><p>我们在对数据库进行操作的时候可能在查询的时候会出现某个字段重复的情况，那么我们应该要如何让查询出的数据不带重复的字段，以及去除数据库中的重复字段呢？<br>1、除SELECT中的重复字段<br>虽然使用DISTINCT关键字能过滤掉多余的重复记录，且只保留一条，但是游戏distinct只能返回他的目标字段，当要查询多个字段时就会产生问题，例如：  </p>
+<pre>
+table
+id     name
+1     a
+2     b
+3     c
+4      b
+5     a
+</pre>
+<p>使用distinct查询不重复的name,</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> name <span class="keyword">from</span> <span class="keyword">table</span></span><br></pre></td></tr></table></figure>
+<p>得到的结果是 </p>
+<pre>
+name
+a
+b
+c
+</pre>
+<p>看似效果已经达到了，但是当我们想要查询id和name两个字段的时候 </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> name ,id <span class="keyword">from</span> <span class="keyword">table</span></span><br></pre></td></tr></table></figure>
+<p>结果就变成了</p>
+<pre>
+name id
+a     1
+b     2
+c     3
+b     4
+a     5
+</pre>
+<p>这时我们就可以使用group by </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> id,name <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">group</span> <span class="keyword">by</span> name</span><br></pre></td></tr></table></figure>
+<p>结果就变成了  </p>
+<pre>
+name id
+a     1
+b     2
+c     3
+</pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/03/23/MySql%E5%8E%BB%E9%87%8D/" data-id="ckmm4m2mb0002u0pycufualay" data-title="MySql去重" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-JAVA基础之引用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/03/20/JAVA%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%BC%95%E7%94%A8/" class="article-date">
@@ -136,7 +213,7 @@ PhantomReference pr=new PhantomReference(object.queue);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/03/20/JAVA%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%BC%95%E7%94%A8/" data-id="ckmht8zk500014wpyfzkm5a00" data-title="JAVA基础之引用" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/03/20/JAVA%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%BC%95%E7%94%A8/" data-id="ckmm4m2m40000u0pydrle9ic0" data-title="JAVA基础之引用" class="article-share-link">Share</a>
       
       
       
@@ -174,7 +251,7 @@ PhantomReference pr=new PhantomReference(object.queue);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/03/17/My-New-Post/" data-id="ckmht8zk000004wpyexshfb1o" data-title="My New Post" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/03/17/My-New-Post/" data-id="ckmm4m2m90001u0py4tbsa325" data-title="My New Post" class="article-share-link">Share</a>
       
       
       
@@ -225,7 +302,7 @@ PhantomReference pr=new PhantomReference(object.queue);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/03/17/hello-world/" data-id="ckmht8zk700024wpyfg7174hu" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/03/17/hello-world/" data-id="ckmm4m2mc0003u0py4xae1nzx" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -266,6 +343,10 @@ PhantomReference pr=new PhantomReference(object.queue);
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/03/23/MySql%E5%8E%BB%E9%87%8D/">MySql去重</a>
+          </li>
         
           <li>
             <a href="/2021/03/20/JAVA%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%BC%95%E7%94%A8/">JAVA基础之引用</a>
