@@ -4,13 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>Java基础之内部类 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="内部类可以将一个类的定义放在另一类的定义内部，这就是内部类。   创建内部类12345678910111213141516171819202122232425262728293031323334353637383940public class Parcel &amp;#123;    class Contents&amp;#123;        private int i&#x3D;11;        public i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础之内部类">
+<meta property="og:url" content="http://example.com/2021/03/23/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%86%85%E9%83%A8%E7%B1%BB/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="内部类可以将一个类的定义放在另一类的定义内部，这就是内部类。   创建内部类12345678910111213141516171819202122232425262728293031323334353637383940public class Parcel &amp;#123;    class Contents&amp;#123;        private int i&#x3D;11;        public i">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-23T15:02:56.000Z">
+<meta property="article:modified_time" content="2021-03-24T15:03:33.694Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -69,9 +73,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Java基础之内部类" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-Java基础之内部类" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/03/23/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%86%85%E9%83%A8%E7%B1%BB/" class="article-date">
   <time class="dt-published" datetime="2021-03-23T15:02:56.000Z" itemprop="datePublished">2021-03-23</time>
@@ -84,8 +86,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/23/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%86%85%E9%83%A8%E7%B1%BB/">Java基础之内部类</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      Java基础之内部类
     </h1>
   
 
@@ -125,254 +127,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-MySql去重" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/23/MySql%E5%8E%BB%E9%87%8D/" class="article-date">
-  <time class="dt-published" datetime="2021-03-23T14:40:27.000Z" itemprop="datePublished">2021-03-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/23/MySql%E5%8E%BB%E9%87%8D/">MySql去重</a>
-    </h1>
+    <a href="/2021/03/23/MySql%E5%8E%BB%E9%87%8D/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MySql去重</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="MySQL去重"><a href="#MySQL去重" class="headerlink" title="MySQL去重"></a>MySQL去重</h1><p>我们在对数据库进行操作的时候可能在查询的时候会出现某个字段重复的情况，那么我们应该要如何让查询出的数据不带重复的字段，以及去除数据库中的重复字段呢？<br>1、除SELECT中的重复字段<br>虽然使用DISTINCT关键字能过滤掉多余的重复记录，且只保留一条，但是游戏distinct只能返回他的目标字段，当要查询多个字段时就会产生问题，例如：  </p>
-<pre>
-table
-id     name
-1     a
-2     b
-3     c
-4      b
-5     a
-</pre>
-<p>使用distinct查询不重复的name,</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> name <span class="keyword">from</span> <span class="keyword">table</span></span><br></pre></td></tr></table></figure>
-<p>得到的结果是 </p>
-<pre>
-name
-a
-b
-c
-</pre>
-<p>看似效果已经达到了，但是当我们想要查询id和name两个字段的时候 </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> name ,id <span class="keyword">from</span> <span class="keyword">table</span></span><br></pre></td></tr></table></figure>
-<p>结果就变成了</p>
-<pre>
-name id
-a     1
-b     2
-c     3
-b     4
-a     5
-</pre>
-<p>这时我们就可以使用group by </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> id,name <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">group</span> <span class="keyword">by</span> name</span><br></pre></td></tr></table></figure>
-<p>结果就变成了  </p>
-<pre>
-name id
-a     1
-b     2
-c     3
-</pre>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/03/23/MySql%E5%8E%BB%E9%87%8D/" data-id="ckmm4m2mb0002u0pycufualay" data-title="MySql去重" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-JAVA基础之引用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/20/JAVA%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%BC%95%E7%94%A8/" class="article-date">
-  <time class="dt-published" datetime="2021-03-20T08:11:07.000Z" itemprop="datePublished">2021-03-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/20/JAVA%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%BC%95%E7%94%A8/">JAVA基础之引用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="用引用操纵对象"><a href="#用引用操纵对象" class="headerlink" title="用引用操纵对象"></a>用引用操纵对象</h2><p>每种程序语言都有操纵元素的方法，根据元素的类型可以选择直接操纵元素或者以某种特殊的语法间接的来操作元素(例如C/C++中的指针),而在JAVA中，一切都视为对象，所以我们可以采用一种统一的语法即引用来操纵对象。<br>举个例子来说引用就像是一个遥控器而对象就是一个对象，通过这个遥控器(引用)我们就建立其了与电视机(对象)之间的连接。当我们想换台或者增减音量时，实际是操纵遥控器对电视机进行控制。<br>此外，就算没有电视机，遥控器也能单独存在，例如：  </p>
-<pre>
-String s;
-</pre>
-<p>在这段代码中，只有引用，而没有对象。如果这时向s发送一个消息，那么就会出现错误。因为s此时还没有与任何事物进行关联。所以我们需要对他进行初始化。  </p>
-<pre>
-String s=new String("afsg");
-</pre>
-<p>这样s与afsg这样一个字符串关联起来，s就是对这个字符串的引用。  </p>
-<h2 id="对象和对象引用"><a href="#对象和对象引用" class="headerlink" title="对象和对象引用"></a>对象和对象引用</h2><p>很多人可能都分不清到底什么是对象什么是引用，让我们来进行分析，举个例子  </p>
-<pre>
-Person person=new Person();
-</pre>
-<p>通常我们把这种语句称之为创建对象，我们可以把其拆分为两个部分</p>
-<pre>
-Person person;
-person =new Person();
-</pre>
-<p>其中第一句就是创建一个对象的引用但是没有定义执行哪个对象，而第二句的new Person()就是穿件一个Person对象，然后使用=将对象引用指向这个对象，从而建立起连接。<br>我们在来卡你个例子</p>
-<pre>
-Person person;
-person=new Person("张三");
-person=new Person("李四");
-</pre>
-<p>在这里面，先让person指向张三这个对象，然后在让他指向李四这个对象，也就是说一个引用指向的对象是可以改变的。</p>
-<h2 id="引用的四种类型"><a href="#引用的四种类型" class="headerlink" title="引用的四种类型"></a>引用的四种类型</h2><p>引用存在四中类型，四种类型有着不同的引用强度，在JVM进行垃圾回收对象时，需要考虑对象的引用强度。<br>1、强引用<br>在代码中普遍使用的，person =new Person();这就是一种强引用，只要强引用还存在就不会被回收<br>2、软引用<br>是用来描述一些还有用但是非必须的对象，当空间充足时是不会回收该对象的，不足的时候会回收  </p>
-<pre>
-person =new Person();
-SoftReference sr=new SoftReference(person);
-</pre>
-<p>3、弱引用<br>用来描述非必须的对象。它类似软引用，但是强度比软引用更弱一些：弱引用具有更短的生命.GC在扫描的过程中，一旦发现只具有被弱引用关联的对象，都会回收掉被弱引用关联的对象。换言之，无论当前内存是否紧缺，GC都将回收被弱引用关联的对象</p>
-<pre>
-Person person=new Person();
-WeakReference wr=new WeakReference(person);
-</pre>
-<p>4、虚引用<br>等同于没有应用，任何时候都可能被GC回收，，也无法通过虚引用来取得一个对象实例,设置这个引用的目的主要是被虚引用关联的对象在被垃圾回收器回收是能收到一个系统通知  </p>
-<pre>
-ReferenceQueue queue=new ReferenceQueue();
-PhantomReference pr=new PhantomReference(object.queue);
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/03/20/JAVA%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%BC%95%E7%94%A8/" data-id="ckmm4m2m40000u0pydrle9ic0" data-title="JAVA基础之引用" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-My-New-Post" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/17/My-New-Post/" class="article-date">
-  <time class="dt-published" datetime="2021-03-16T16:19:48.000Z" itemprop="datePublished">2021-03-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/17/My-New-Post/">My New Post</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/03/17/My-New-Post/" data-id="ckmm4m2m90001u0py4tbsa325" data-title="My New Post" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/17/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-03-16T16:14:45.808Z" itemprop="datePublished">2021-03-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/17/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/03/17/hello-world/" data-id="ckmm4m2mc0003u0py4xae1nzx" data-title="Hello World" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
